@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Exercício 5</title> 
+    <script>
+        
+        function verificaCheckboxes() {
+            const checkboxes = document.querySelectorAll('input[type="checkbox"]'); // Seleciona todos os checkboxes
+            const submitButton = document.getElementById('submitButton'); // Seleciona o botão de envio pelo ID
+            let checkedCount = 0; // Inicializa a contagem de checkboxes marcados
+
+            // Itera por todos os checkboxes
+            for (let i = 0; i < checkboxes.length; i++) {
+                if (checkboxes[i].checked) { // Se o checkbox estiver marcado
+                    checkedCount++; // Incrementa a contagem
+                }
+            }
+
+            // Habilita o botão de envio se 2 ou mais checkboxes estiverem marcados, caso contrário, desabilita
+            submitButton.disabled = checkedCount < 2;
+        }
+    </script>
+</head>
+<body>
+    <h2>Exercício 5</h2>
+    <p>– Crie um formulário de seleção de itens com checkbox. O formulário deve possuir um botão desabilitado. O botão 
+        só se torna clicável quando tiver pelo menos 2 checkboxs marcado.
+        </p>
+    <h3>Selecione os Itens</h3> 
+    <form>
+        <!-- Checkbox para o Item com evento onclick para verificar a contagem de checkboxes marcados -->
+        <label>
+            <input type="checkbox" name="item" value="item1" onclick="verificaCheckboxes()">
+            Item 1
+        </label><br>
+        <label>
+            <input type="checkbox" name="item" value="item2" onclick="verificaCheckboxes()">
+            Item 2
+        </label><br>
+        <label>
+            <input type="checkbox" name="item" value="item3" onclick="verificaCheckboxes()">
+            Item 3
+        </label><br>
+        <label>
+            <input type="checkbox" name="item" value="item4" onclick="verificaCheckboxes()">
+            Item 4
+        </label><br>
+        <label>
+            <input type="checkbox" name="item" value="item5" onclick="verificaCheckboxes()">
+            Item 5
+        </label><br>
+        <!-- Botão de envio inicialmente desabilitado -->
+        <button type="submit" id="submitButton" disabled>Enviar</button>
+    </form>
+</body>

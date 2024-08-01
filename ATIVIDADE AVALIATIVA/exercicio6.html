@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 6</title>
+    <style>
+        .container {
+            margin: 20px;
+        }
+        #meuParagrafo {
+            padding: 20px;
+            border: 1px solid #f53333;
+        }
+    </style>
+    <script>
+        function mudarCorFonte(cor) {
+            document.getElementById('meuParagrafo').style.color = cor;
+        }
+
+        function mudarCorFundo(cor) {
+            document.getElementById('meuParagrafo').style.backgroundColor = cor;
+        }
+    </script>
+</head>
+<body>
+    <h2>Exercício 6</h2>
+    <p>– Crie um parágrafo com um texto como conteúdo. Crie 4 botões. Dois para trocar a cor da fonte, de branco para 
+        preto e vice-versa e outros dois para fazer o mesmo com o fundo do parágrafo. Use divs se julgar necessário.
+    </p>
+    <div class="container">
+        <p id="meuParagrafo">Use os <strong>botões</strong> abaixo para <strong>alterar a cor da fonte</strong> e o <strong>fundo do parágrafo</strong>. It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p>
+        <button onclick="mudarCorFonte('white')">Fonte Branca</button>
+        <button onclick="mudarCorFonte('black')">Fonte Preta</button>
+        <button onclick="mudarCorFundo('white')">Fundo Branco</button>
+        <button onclick="mudarCorFundo('black')">Fundo Preto</button>
+    </div>
+</body>
+</html>

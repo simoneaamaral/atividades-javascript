@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 9</title>
+    <style>
+        .container {
+            margin: 20px;
+        }
+        .erro {
+            color: red;
+        }
+    </style>
+    <script>
+        function validarFormulario(event) {
+            const login = document.getElementById('login').value;
+            const senha = document.getElementById('senha').value;
+            const confirmarSenha = document.getElementById('confirmarSenha').value;
+            const mensagemErro = document.getElementById('mensagemErro');
+
+            mensagemErro.textContent = ''; // Limpa as mensagens de erro
+
+            if (!login || !senha || !confirmarSenha) {
+                mensagemErro.textContent = 'Todos os campos devem ser preenchidos.';
+                event.preventDefault();  // Impede o envio do formulário
+                return;
+            }
+
+            if (senha.length < 6 || senha.length > 10) {
+                mensagemErro.textContent = 'A senha deve ter entre 6 e 10 caracteres.';
+                event.preventDefault();  // Impede o envio do formulário
+                return;
+            }
+
+            if (senha !== confirmarSenha) {
+                mensagemErro.textContent = 'As senhas não coincidem.';
+                event.preventDefault();  // Impede o envio do formulário
+                return;
+            }
+
+            alert('Formulário enviado com sucesso!');
+        }
+    </script>
+</head>
+<body>
+    <h2>Exercício 9</h2>
+    <p> - Crie um formulário com os campos para cadastrar o usuário de um sistema (login, senha e confirmar senha). Permita 
+        que a página seja submetida apenas se todos os campos estiverem preenchidos, se os campos senha e confirma senha 
+        forem iguais e a senha possuir entre 6 e 10 caracteres.
+        </p>
+    <div class="container">
+        <h3>Cadastro de Usuário</h3>
+        <form onsubmit="validarFormulario(event)">
+            <div>
+                <label for="login">Login:</label>
+                <input type="text" id="login" name="login" required>
+            </div>
+            <div>
+                <label for="senha">Senha:</label>
+                <input type="password" id="senha" name="senha" required minlength="6" maxlength="10">
+            </div>
+            <div>
+                <label for="confirmarSenha">Confirmar Senha:</label>
+                <input type="password" id="confirmarSenha" name="confirmarSenha" required>
+            </div>
+            <div>
+                <button type="submit">Cadastrar</button>
+            </div>
+            <div id="mensagemErro" class="erro"></div>
+        </form>
+    </div>
+</body>
+</html>
